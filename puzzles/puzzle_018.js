@@ -23,15 +23,15 @@ const films = [
     }
 ];
 
-const showGoodFilms = films.filter(i => i.rating > 8);
-const showListOfFilm = films.map(i => i.name).reduce((sum, current) => `${sum}, ${current}`);
-const setFilmsIds = films.map((i, key) => {
+const showGoodFilms = (array) => array.filter(i => i.rating > 8);
+const showListOfFilm = (array) => array.map(i => i.name).reduce((sum, current) => `${sum}, ${current}`);
+const setFilmsIds = (array) => array.map((i, key) => {
     i.id = key
     return i;
 });
-const checkFilms = setFilmsIds.every(i => i.id || i.id === 0);
+const checkFilms = (array) => array.every(i => i.id || i.id === 0);
 
-console.log(showGoodFilms);
-console.log(showListOfFilm);
-console.log(setFilmsIds);
-console.log(checkFilms);
+console.log(showGoodFilms(films));
+console.log(showListOfFilm(films));
+console.log(setFilmsIds(films));
+console.log(checkFilms(setFilmsIds(films)));
